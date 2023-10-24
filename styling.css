@@ -1,0 +1,121 @@
+body {
+  background-image: linear-gradient(black, #ff33c238);
+  background-color: black;
+  background-attachment: fixed;
+  color: white;
+  width: 100%;
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+#headerlogo {
+  width: 200px;
+}
+header {
+  display: flex;
+}
+header img {
+  margin-top: 10px;
+}
+.middle > * {
+  margin: auto 0 auto 0;
+}
+.middle {
+  margin: auto;
+  display: flex;
+  text-align: center;
+}
+section {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: clamp(500px, 60%, 100%);
+}
+.box {
+  padding: 4px;
+  margin-left: -4px;
+  margin-top: -4px;
+  border-radius: 5px;
+  background-color: #ffa304;
+  position: absolute;
+}
+.box2 {
+  padding: 4px;
+  margin-left: -4px;
+  margin-top: -4px;
+  border-radius: 5px;
+  background-color: #3cff00;
+  position: absolute;
+}
+
+#screen {
+  width: 100%;
+  pointer-events: auto;
+  user-select: none;
+  filter: brightness(25%);
+}
+.no_mark {
+  list-style-type: none;
+}
+.listi {
+  display: flex;
+  align-items: center;
+}
+.listi > p {
+  margin-left: 10px;
+}
+.listi > div {
+  margin-top: 1px;
+}
+fieldset {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+fieldset > * {
+  margin: 0 40px 0 40px;
+}
+.settings_output {
+  margin-right: 25px;
+}
+footer {
+  margin: auto;
+  margin-bottom: 0;
+  text-align: center;
+  background-image: -moz-linear-gradient(rgb(0, 0, 0, 0), black);
+  height: 100px;
+  display: flex;
+  justify-content: center;
+}
+footer > * {
+  align-self: flex-end;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+#yt_logo {
+  height: 30px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 7px;
+}
+a {
+  color: #ff6ed4;
+  text-shadow: 0px 0px 15px black;
+}
+
+#clickable_area {
+  width: 100%;
+  height: 200px;
+  background-color: black;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+#clickable_area > * {
+  vertical-align: middle;
+  margin: 0px;
+  font-size: 50px;
+  margin-bottom: 5px;
+  color: rgb(64, 64, 64);
+  user-select: none;
+}

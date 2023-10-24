@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styling.css" />
+    <meta name="author" content="vnc" />
+    <meta name="keywords" content="Tickrate, SubTick 64-tick, 128-tick" />
+    <meta
+      name="description"
+      content="Simulation of the tickrate in Counter-Strike games"
+    />
+    <title>vnc's tickrate test</title>
+  </head>
+  <body onload="updateSettings()">
+    <script src="script.js"></script>
+    <header>
+      <div class="middle">
+        <a href="https://www.youtube.com/channel/UCiRFHka-Io8t-l-t46UGTGg">
+          <img
+            src="images/vnc watermark lowercase.png"
+            alt="logo"
+            id="headerlogo"
+        /></a>
+        <h1>TICKRATE TEST</h1>
+      </div>
+    </header>
+    <section>
+      <h2>About</h2>
+      <p>
+        This website was made for you to visualize the difference between
+        tickrates in Counter-Strike.
+      </p>
+      <h2>How it works</h2>
+      <ul>
+        <li><p>Select a tickrate</p></li>
+        <li>
+          <p>
+            Based on the tickrate you selected, random delay (in the range of
+            the selected tickrate) will be applied every time you click on the
+            "test area" (CS2 screenshot under this section)
+          </p>
+        </li>
+        <li>
+          <p>
+            You can select a "Worst case scenario" checkbox, that will always
+            make your delay the worst one possible in the range of selected
+            tickrate
+          </p>
+        </li>
+        <li>
+          <p>When you click on the "test area," 2 crosshairs will appear:</p>
+        </li>
+
+        <ul class="no_mark">
+          <li class="listi">
+            <div class="box"></div>
+            <p>= appears as you click, where you click</p>
+          </li>
+          <li class="listi">
+            <div class="box2"></div>
+            <p>= appears after a delay (based on selected tickrate)</p>
+          </li>
+        </ul>
+      </ul>
+      <h2>Results</h2>
+      <ul>
+        <li>
+          <p>The green crosshair is where your shot would have gone in CS:GO</p>
+        </li>
+        <li>
+          <p>
+            The orange crosshair is where your shot would have gone in CS2, but
+            your gun would only fire at the next tick, meaning that your
+            crosshair would be in the position of the green crosshair at the
+            moment the actual animation of you shooting would start
+          </p>
+        </li>
+        <li>
+          <p>
+            If you only see the green crosshair, both crosshairs are on the same
+            place (shot would go to the same spot in both games)
+          </p>
+        </li>
+      </ul>
+    </section>
+    <section>
+      <form action=""></form>
+    </section>
+    <fieldset>
+      <legend>test settings</legend>
+      <div>
+        <label for="">Simulated tickrate:</label> <br />
+        <input
+          type="radio"
+          name="tickrate"
+          id="64"
+          value="64"
+          onchange="updateSettings()"
+          checked
+        />
+        <label for="64">64 tick (delay up to 16 ms)</label>
+        <input
+          type="radio"
+          name="tickrate"
+          id="128"
+          value="128"
+          onchange="updateSettings()"
+        />
+        <label for="128">128 tick (delay up to 8 ms)</label>
+        <input
+          type="radio"
+          name="tickrate"
+          id="custom"
+          value="custom"
+          onchange="updateSettings()"
+        />
+        <label for="custom">Custom tickrate: </label>
+        <input
+          type="number"
+          name="custom_tickrate"
+          id="custom_tickrate"
+          min="1"
+          placeholder="32"
+          value="32"
+          onchange="updateSettings()"
+        />
+        <input
+          type="checkbox"
+          name="worst_case_scenario"
+          id="worst_case_scenario"
+          onchange="updateSettings()"
+        />
+        <label for="worst_case_scenario">Worst case scenario</label>
+      </div>
+      <div id="settings_output">
+        <label for="">Current settings:</label> <br />
+        <label>Simulated tickrate: </label>
+        <label id="simulated_tick_output" class="settings_output"></label>
+        <label>Max delay: </label>
+        <label id="simulated_delay" class="settings_output"></label>
+        <label for="">Worst case scenario: </label>
+        <label
+          for=""
+          class="settings_output"
+          id="worst_case_scenario_output"
+        ></label>
+      </div>
+    </fieldset>
+
+    <div id="screendiv">
+      <img
+        src="images/cs_screen_crop.png"
+        alt="CS2 aim map"
+        id="screen"
+        draggable="false"
+        onmousemove="setPos(event)"
+        onmousedown="createBox()"
+      />
+    </div>
+    <label id="used_set" class="middle">Used delay: </label>
+    <section>
+      <!--
+      <p>
+        <i
+          ><b>*note:</b> For some reason, the orange indicator is slightly
+          delayed to where you actually clicked, this shouldn't be happening,
+          but I couldn't find any adjustment to the code to fix it. In CS2, the
+          gun would fire to the exact place you aim at while clicking. The
+          distance between the indicators should still represent the distance
+          between where your shot would have gone in CS:GO and in CS2</i
+        >
+      </p>-->
+      <h2>You can also try:</h2>
+      <ul>
+        <li>
+          <a href="blinktest.html">Tickrate blink spot test</a>
+        </li>
+      </ul>
+    </section>
+    <footer>
+      <a href="https://www.youtube.com/channel/UCiRFHka-Io8t-l-t46UGTGg">
+        <img src="images/youtube.png" alt="subscribe" id="yt_logo"
+      /></a>
+      <p><i>made by</i><b> vnc </b></p>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styling.css" />
+    <meta name="author" content="vnc" />
+    <meta name="keywords" content="Tickrate, SubTick 64-tick, 128-tick" />
+    <meta
+      name="description"
+      content="Simulation of the tickrate in Counter-Strike games"
+    />
+
+    <title>vnc's tickrate test</title>
+  </head>
+  <body onload="updateSettings()">
+    <script src="script2.js"></script>
+    <header>
+      <div class="middle">
+    <a href="https://www.youtube.com/channel/UCiRFHka-Io8t-l-t46UGTGg"> 
+        <img
+          src="images/vnc watermark lowercase.png"
+          alt="logo"
+          id="headerlogo"
+        />  </a> 
+        <h1>TICKRATE TEST</h1>
+      </div>
+    </header>
+    <section>
+        <h2>About</h2>
+        <p>
+          This website was made for you to test whether you can spot any
+          difference between delay caused by 64 and 128 tickrate in
+          Counter-Strike.
+        </p>
+        <h2>How it works</h2>
+        <ul>
+          <li><p>Below is a clickable black space</p></li>
+          <li>
+            <p>
+              You can select multiple options for your tests
+            </p>
+          </li>
+          
+          <ul>
+            <li><p>Simulated tickrate - tickrate, from which the length of the flash will be calculated (highest delay possible)</p></li>
+            <li><p>Loop: </p> <ul><li><p>off = after clicking, the site black area will flash pink once</p></li>
+                <li><p> on = after clicking, the black area will keep switching between black and pink until you click again</p></li></li>
+          </ul>
+        <li>Guessing mode - makes the tickrate random (64 or 128) and you will be able to guess which one it is. The correct answer will be shown to you after your guess. </li>
+        </ul>
+        </section>
+  <fieldset>
+    <legend>test settings</legend>
+    <div>
+        <label for="">Change settings: </label> <br>
+        <input
+          type="radio"
+          name="tickrate"
+          id="64"
+          value="64"
+          onchange="updateSettings()"
+          checked
+        />
+        <label for="64" id="64s">64 tick (delay up to 16 ms)</label>
+        <input
+          type="radio"
+          name="tickrate"
+          id="128"
+          value="128"
+          onchange="updateSettings()"
+        />
+        <label for="128" id="128s">128 tick (delay up to 8 ms)</label>
+        <input
+          type="radio"
+          name="tickrate"
+          id="custom"
+          value="custom"
+          onchange="updateSettings()"
+        />
+        <label for="custom" id="customs">Custom tickrate: </label>
+        <input
+          type="number"
+          name="custom_tickrate"
+          id="custom_tickrate"
+          min="1"
+          placeholder="32"
+          value="32"
+          onchange="updateSettings()"
+        />
+        <input type="checkbox" name="loop" id="loop" onchange="updateSettings()">
+        <label for="loop">loop</label>
+        <input type="checkbox" name="guessing" id="guessing" onchange="updateSettings()">
+        <label for="loop">guessing mode</label>
+    </div>
+    <div id="settings_output">
+        <label for="">Current settings:</label> <br />
+        <label id="simulated_tick_outputs">Simulated tickrate: </label>
+        <label id="simulated_tick_output" class="settings_output"></label>
+        <label id="simulated_delays">Simulated delay: </label>
+        <label id="simulated_delay" class="settings_output"></label>
+        <label>Loop:</label>
+        <label id="loop_output" class="settings_output"></label>
+        <label>Guessing mode:</label>
+        <label id="guessing_mode_output" class="settings_output"></label>
+      </div>
+  </fieldset>
+  <div id="clickable_area" onmousedown="flash()">
+    <h2 id="text">CLICK HERE! (EPILEPSY WARNING)</h2>
+  </div>
+  <label for="guess" id="guesss">Your guess:</label>
+  <select name="guess_select" id="guessss">
+    <option value="15.63">64 Tick (15.6 ms delay)</option>
+    <option value="7.81">128 Tick (7.8 ms delay)</option>
+  </select>
+  <input type="submit" onclick="checkGuess()" id="guesssss" value="check">
+  <label id="result"></label>
+  <section>
+    <h2>You can also try:</h2>
+    <ul>
+      <li>
+        <a href="index.html">Tickrate inaccuracy simulator</a>
+      </li>
+    </ul>
+  </section>
+  <footer>
+    <a href="https://www.youtube.com/channel/UCiRFHka-Io8t-l-t46UGTGg">
+      <img src="images/youtube.png" alt="subscribe" id="yt_logo"
+    /></a>
+    <p><i>made by</i><b> vnc </b></p>
+  </footer>
+  </body>
+</html>
